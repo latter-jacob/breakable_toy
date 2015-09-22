@@ -25,6 +25,18 @@ class IssuesController < ApplicationController
 		end
 	end
 
+  def destroy
+    if current_user.try(:admin?)
+      @issue = Issue.find(params[:id])
+      @issue.destroy
+      flash[:notice] = 'Issue deleted.'
+      redirect_to root_path
+    else
+      redirect_to root_path
+      flash[:notice] = "Only admins can delete submissions!"
+    end
+  end
+
 
   protected
   def issue_params

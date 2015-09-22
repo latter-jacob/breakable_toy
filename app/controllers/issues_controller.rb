@@ -17,13 +17,14 @@ class IssuesController < ApplicationController
 		@issue = Issue.new(issue_params)
 
 		if @issue.save
-			flash[:notice] =  'Issue Successfully Added!'
-			redirect_to root_path
+			flash[:notice] = "Issue Successfully Added!"
+			redirect_to issue_path(@issue)
 		else
-			flash[:notice] =  'Fill that out right.'
-			render :new
+      flash[:notice] = @issue.errors.full_messages.join(". ")
+			redirect_to new_issue_path
 		end
 	end
+
 
   protected
   def issue_params

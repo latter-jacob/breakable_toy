@@ -14,7 +14,7 @@ class IssuesController < ApplicationController
 	end
 
 	def create
-		@issue = Issue.new(issue_params)
+  	@issue = Issue.new(issue_params)
 
 		if @issue.save
 			flash[:notice] = "Issue Successfully Added!"
@@ -37,8 +37,30 @@ class IssuesController < ApplicationController
     end
   end
 
+  def update
+    @issue = Issue.find(params[:id])
+
+    if @issue.update(issue_params)
+      flash[:notice] = "Issue Edited"
+      redirect_to root_path
+    else
+      flash[:notice] = @issue.errors.full_messages.join(". ")
+      redirect_to edit_issue_path(@issue)
+   end
+  end
+
+  def edit
+    @neighborhoods = Issue::NEIGHBORHOODS
+    if current_user.try(:admin?)
+      @issue = Issue.find(params[:id])
+    else
+      flash[:notice] = "This portion of the site is for admins only!"
+      redirect_to root_path
+    end
+  end
 
   protected
+
   def issue_params
     params.require(:issue).permit(:description, :headline, :neighborhood)
   end

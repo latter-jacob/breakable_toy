@@ -1,0 +1,16 @@
+<h4>Edit <%= @issue.headline %></h4>
+
+<%= form_for @issue do |f| %>
+
+    <%= f.label "headline" %><br>
+    <%= f.text_field :headline %>
+
+    <%= f.label "description" %><br>
+    <%= f.text_field :description %>
+
+    <%= f.label :neighborhood %> <br>
+    <%= f.select :neighborhood, @neighborhoods%>
+
+    <%= f.submit "Edit Issue" %>
+
+<% end %>

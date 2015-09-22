@@ -10,6 +10,7 @@ FactoryGirl.define do
   factory :issue do
     headline "Flat Tire"
     description "My back tire has a nail in the tire."
+    neighborhood "Beacon Hill"
   end
 
 end

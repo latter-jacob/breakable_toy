@@ -1,0 +1,12 @@
+<h1>Issues</h1>
+
+<% @issues.each do |issue| %>
+  <ul>
+    <li><%= link_to issue.headline, issue_path(issue) %></li>
+    <li> <%= issue.neighborhood %></li>
+
+  </ul>
+<% end %>
+
+
+<%= link_to 'Submit new issue', new_issue_path %>

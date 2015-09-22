@@ -3,7 +3,7 @@ class CreateIssues < ActiveRecord::Migration
     create_table :issues do |t|
       t.text :description
       t.text :headline,  null: false
-      t.belongs_to :neighborhood, null: false
+      t.text :neighborhood
       t.timestamps null: false
     end
   end

@@ -1,0 +1,23 @@
+<h4>What's wrong with the bicycle?</h4>
+
+<%= form_for @issue do |f| %>
+
+  <p>
+    <%= f.label "headline" %><br>
+    <%= f.text_field :headline %>
+  <p>
+<br>
+    <p>
+      <%= f.label "description" %><br>
+      <%= f.text_field :description %>
+    <p>
+<br>
+  <p>
+    <%= f.label :neighborhood %>
+    <%= f.select :neighborhood, @neighborhoods%>
+  <p>
+<br>
+  <p>
+    <%= f.submit "Add Issue" %>
+  </p>
+<% end %>

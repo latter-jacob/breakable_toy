@@ -1,7 +1,7 @@
 require "rails_helper"
 
 feature "user", %(
-As a use, when I visit the show page
+As a user, when I visit the show page
 i want to see the details for the specified issue
   Acceptance Criteria
   [ ] - I must see details of issue

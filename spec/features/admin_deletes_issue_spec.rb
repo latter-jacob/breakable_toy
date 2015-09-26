@@ -2,7 +2,7 @@ require 'rails_helper'
 
 feature 'admin deletes an issue', %{
   As an admin
-  I want to be able to delete an issue
+  [X] I want to be able to delete an issue
 } do
 
   # [ ] Admins are able to successfully delete a show

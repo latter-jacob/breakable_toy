@@ -5,10 +5,11 @@ feature 'user can submit a bike issue', %(
    I want to be able to submit a bike issue
 
   Acceptance Criteria
-  - [ ] I must be able to submit an issue
+  - [X] User must be able to submit an issue
+  - [X] User get error messages when filling out form wrong
 
 ) do
-  scenario 'submit bike issue' do
+  scenario 'user submits bike issue' do
     user = FactoryGirl.create(:user)
 
     visit new_user_session_path
@@ -30,7 +31,7 @@ feature 'user can submit a bike issue', %(
     expect(page).to have_content("I have a flat tire.")
     expect(page).to have_content("There is a nail in the front tire and I have a slow leak.")
   end
-  scenario 'admin adds program unsuccessfully' do
+  scenario 'user adds program unsuccessfully' do
     user = FactoryGirl.create(:user)
 
     visit new_user_session_path

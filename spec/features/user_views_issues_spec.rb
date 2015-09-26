@@ -1,7 +1,7 @@
 require "rails_helper"
 
 feature "user", %(
-As a use, when I visit the root page
+As a user, when I visit the root page
 I want to see a list of issues
 
   Acceptance Criteria

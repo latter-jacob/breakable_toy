@@ -1,3 +1,7 @@
+![Build Status](https://codeship.com/projects/<YOUR_PROJECT_UUID>/status?branch=master)
+![Code Climate](https://codeclimate.com/github/latterjacob/breakable_toy.png)
+![Coverage Status](https://coveralls.io/repos/latterjacob/breakable_toy/badge.png)
+
 == README
 
 This README would normally document whatever steps are necessary to get the

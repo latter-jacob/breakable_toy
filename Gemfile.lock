@@ -49,6 +49,8 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
+    codeclimate-test-reporter (0.4.8)
+      simplecov (>= 0.7.1, < 1.0.0)
     coderay (1.1.0)
     coffee-rails (4.1.0)
       coffee-script (>= 2.2.0)
@@ -82,6 +84,7 @@ GEM
     foundation-rails (5.5.2.1)
       railties (>= 3.1.0)
       sass (>= 3.3.0, < 3.5)
+    geocoder (1.2.11)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
     http-cookie (1.0.2)
@@ -226,11 +229,13 @@ PLATFORMS
 DEPENDENCIES
   byebug
   capybara
+  codeclimate-test-reporter
   coffee-rails (~> 4.1.0)
   coveralls
   devise
   factory_girl
   foundation-rails
+  geocoder
   jbuilder (~> 2.0)
   jquery-rails
   launchy

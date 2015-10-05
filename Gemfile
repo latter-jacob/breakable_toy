@@ -20,6 +20,7 @@ end
 
 group :test do
   gem 'coveralls', require: false
+  gem 'codeclimate-test-reporter', require: nil
 end
 
 
@@ -32,3 +33,4 @@ gem 'shoulda-matchers', group: [:development, :test], require: false
 gem 'pry-rails'
 gem 'devise'
 gem 'foundation-rails'
+gem 'geocoder'

@@ -11,10 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150929225149) do
+ActiveRecord::Schema.define(version: 20151005174055) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "current_locations", force: :cascade do |t|
+    t.integer "user_id",   null: false
+    t.string  "address"
+    t.float   "latitude"
+    t.float   "longitude"
+  end
+
+  add_index "current_locations", ["user_id"], name: "index_current_locations_on_user_id", unique: true, using: :btree
 
   create_table "issues", force: :cascade do |t|
     t.text     "description"

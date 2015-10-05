@@ -1,9 +1,8 @@
 require 'rails_helper'
 
-feature 'user registers', %Q{
-  As a visitor
-  I want to register
-  So that I can create an account
+feature 'user updates a profile', %Q{
+  As a user
+  I want to be able to update my profile
 } do
 
   # Acceptance Criteria:
@@ -13,24 +12,31 @@ feature 'user registers', %Q{
   #   an error message
 
   scenario 'provide valid registration information' do
-    visit new_user_registration_path
+    user = FactoryGirl.create(:user, email: "john@example.com")
+    visit new_user_session_path
+
+    fill_in 'Email', with: 'john@example.com'
+    fill_in 'Password', with: 'password'
+
+    click_button 'Log in'
+
+    visit edit_user_registration_path(user)
 
     fill_in 'Username', with: 'John'
     fill_in 'Email', with: 'john@example.com'
     fill_in 'Phone number', with: '5555555555'
-    fill_in 'Password', with: 'password'
-    fill_in 'Password confirmation', with: 'password'
     fill_in 'Emergency contact', with: 'Jane'
     fill_in 'Emergency contact email', with: 'jane@example.com'
     fill_in 'Emergency contact phone', with: '5555555555'
+    fill_in 'Current password', with: 'password'
 
-    click_button 'Sign up'
+    click_button 'Update'
 
-    expect(page).to have_content('Welcome! You have signed up successfully.')
+    expect(page).to have_content('Your account has been updated successfully.')
     expect(page).to have_content('Sign Out')
   end
 
-  scenario 'provide invalid registration information' do
+  scenario 'provide invalid update information' do
     visit new_user_registration_path
 
     click_button 'Sign up'

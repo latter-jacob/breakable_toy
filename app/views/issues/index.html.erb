@@ -1,12 +1,35 @@
-<h1>Issues</h1>
+<div class="title-box">
+  Bicycles Benefit Boston
+</div>
 
-<% @issues.each do |issue| %>
-  <ul>
-    <li><%= link_to issue.headline, issue_path(issue) %></li>
-    <li> <%= issue.neighborhood %></li>
+<div class="panel" id="map"></div>
 
-  </ul>
-<% end %>
+<div class="new-issue-link">
+   <%= link_to 'Submit new issue', new_issue_path %>
+</div>
 
+<div class="issue-list-title">Issue List</div>
+<br>
 
-<%= link_to 'Submit new issue', new_issue_path %>
+ <% @issues.each do |issue| %>
+ <div class="row">
+   <div class="small-9 large-12 columns">
+     <article class="event">
+
+         <div class="event-date">
+           <p class="event-month"> <%= issue.created_at.strftime("%m/%d") %>  </p>
+           <p class="event-day"> <%= issue.created_at.strftime("%I:%M %p") %></p>
+         </div>
+
+         <div class="event-desc">
+           <p class="event-desc-header"><%= link_to issue.headline, issue_path(issue) %></p>
+         </div>
+
+       </article>
+
+       <hr>
+   </div>
+ </div>
+ <% end %>
+
+google api key AIzaSyA1tNiQPoB-u0iLLuLb3aBoxHvrkFO_9KQ

@@ -1,8 +1,17 @@
 class IssuesController < ApplicationController
+  respond_to :html, :js
 
   def index
 		@issues = Issue.all
-	end
+    # @hash = Gmaps4rails.build_markers(@issues) do |issue, marker|
+    #   marker.lat issue.latitude
+    #   marker.lng issue.longitude
+    # end
+    respond_to do |format|
+      format.html
+      format.json { render json: @issues }
+    end
+  end
 
   def show
   	@issue = Issue.find(params[:id])
@@ -11,7 +20,7 @@ class IssuesController < ApplicationController
   def new
 		@issue = Issue.new
     @neighborhoods = Issue::NEIGHBORHOODS
-	end
+  end
 
 	def create
   	@issue = Issue.new(issue_params)
@@ -46,7 +55,7 @@ class IssuesController < ApplicationController
     else
       flash[:notice] = @issue.errors.full_messages.join(". ")
       redirect_to edit_issue_path(@issue)
-   end
+    end
   end
 
   def edit
@@ -62,6 +71,6 @@ class IssuesController < ApplicationController
   protected
 
   def issue_params
-    params.require(:issue).permit(:description, :headline, :neighborhood)
+    params.require(:issue).permit(:description, :headline, :neighborhood, :longitude, :latitude)
   end
 end

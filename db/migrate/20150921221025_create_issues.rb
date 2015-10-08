@@ -5,6 +5,10 @@ class CreateIssues < ActiveRecord::Migration
       t.text :headline,  null: false
       t.text :neighborhood
       t.timestamps null: false
+      t.string  :address
+      t.float   :latitude
+      t.float   :longitude
+      t.belongs_to :user
     end
   end
 end

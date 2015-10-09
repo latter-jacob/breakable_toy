@@ -3,10 +3,6 @@ class IssuesController < ApplicationController
 
   def index
 		@issues = Issue.all
-    # @hash = Gmaps4rails.build_markers(@issues) do |issue, marker|
-    #   marker.lat issue.latitude
-    #   marker.lng issue.longitude
-    # end
     respond_to do |format|
       format.html
       format.json { render json: @issues }
@@ -19,7 +15,6 @@ class IssuesController < ApplicationController
 
   def new
 		@issue = Issue.new
-    @neighborhoods = Issue::NEIGHBORHOODS
   end
 
 	def create
@@ -59,7 +54,6 @@ class IssuesController < ApplicationController
   end
 
   def edit
-    @neighborhoods = Issue::NEIGHBORHOODS
     if current_user.try(:admin?)
       @issue = Issue.find(params[:id])
     else
@@ -70,7 +64,9 @@ class IssuesController < ApplicationController
 
   protected
 
+
   def issue_params
-    params.require(:issue).permit(:description, :headline, :neighborhood, :longitude, :latitude)
+    params.require(:issue).permit(:description, :headline, :longitude,
+      :latitude, :completed, :address)
   end
 end

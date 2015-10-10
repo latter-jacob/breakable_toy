@@ -22,7 +22,7 @@ class IssuesController < ApplicationController
 
 		if @issue.save
 			flash[:notice] = "Issue Successfully Added!"
-			redirect_to issue_path(@issue)
+			redirect_to root_path
 		else
       flash[:notice] = @issue.errors.full_messages.join(". ")
 			redirect_to new_issue_path

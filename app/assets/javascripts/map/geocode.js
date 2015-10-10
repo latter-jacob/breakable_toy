@@ -1,4 +1,5 @@
 $('.submit').on("click", function(event) {
+  event.preventDefault();
   headline = $('#issue_headline').val()
   description = $('#issue_description').val()
 
@@ -13,8 +14,6 @@ function geoFindMe(headline, description) {
     output.innerHTML = "<p>Geolocation is not supported by your browser</p>";
     return;
   }
-        debugger
-
   function success(position) {
     var latitude  = position.coords.latitude;
     var longitude = position.coords.longitude;
@@ -26,9 +25,12 @@ function geoFindMe(headline, description) {
          longitude: longitude } },
       dataType: "json"
     })
-    window.location.href = "/";
+    .done(function(){
+      window.location.href = "/";
+
+
+    })
     // get the id of the next thing we want, to go to!
-    // output.innerHTML = '<p>Latitude is ' + latitude + '° <br>Longitude is ' + longitude + '°</p>';
   };
 
   function error() {

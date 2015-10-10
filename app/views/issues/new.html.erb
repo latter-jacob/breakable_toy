@@ -1,6 +1,7 @@
 <div class="new-issue-page">
   <h4 class="title-issue-form">What's wrong with the bicycle?</h4>
 
+<div id="out"></div>
   <%= form_for @issue do |f| %>
 
       <%= f.label "headline", class: "issue-form-labels" %><br>
@@ -14,7 +15,8 @@
       </div>
 
       <%= f.submit "Add Issue", class: "submit" %>
+
   <% end %>
 </div>
 
-<div id="out"></div>
+<p><button onclick="geoFindMe()">Show my location</button></p>

@@ -20,7 +20,7 @@ $(document).ready(function(){
      });
 
       var selfMarker = handler.addMarker({
-              lat: 42.359071,
+              lat: 42.349071,
               lng: -71.062275
             }, { opacity: 0 });
 

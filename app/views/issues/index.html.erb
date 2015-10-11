@@ -3,11 +3,12 @@
 </div>
 <div class="panel" id="map"></div>
 
-<div class="new-issue-link">
-   <%= link_to 'Submit new issue', new_issue_path %>
-</div>
+   <div class="submit-issue-div">
+     <%= button_to "Submit new issue", new_issue_path, method: :get, class: "submit-issue" %>
+   </div>
 
 <div class="issue-list-title">Issue List</div>
+
 <br>
 
  <% @issues.each do |issue| %>

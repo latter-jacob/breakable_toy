@@ -18,18 +18,18 @@
 
 .panel {
   height: 400px;
-  border-radius: 16px 16px;
   border-color: #fff;
   border-style: solid;
   box-shadow: 2px 2px 10px #B1B1B1;
-  margin-top: 25px;
-  border-width: 7px;
+  border-width: 2px;
 }
+
 #map-canvas {
   height: 50%;
   width: 90%;
-  margin-left:5%;
+  margin-left: 5%;
 }
+
 
 .title-box {
   background-color: #BD3039;
@@ -40,10 +40,14 @@
   padding-left: 5%;
 }
 
-.new-issue-link{
+.submit-issue {
   font-family: 'Alegreya Sans SC', sans-serif;
   font-size: 2rem;
-  padding-left: 26%;
+  border: 2px solid;
+}
+
+.submit-issue-div {
+  text-align: center;
 }
 
 .issue-list-title{
@@ -111,7 +115,7 @@
   }
 }
 body{
-  background-image: url("city.jpg");
+  background-image: url("boston.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: 50% 50%;
@@ -134,4 +138,14 @@ body{
 .issue-form-description{
   padding-left: 3%;
   padding-right: 3%;
+}
+
+.submit{
+  margin-left: 3%;
+}
+@media (max-width: 1100px) {
+  .title-box {
+    text-align: center;
+    padding-left: 0%;
+  }
 }

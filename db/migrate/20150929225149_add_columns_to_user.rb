@@ -6,6 +6,9 @@ class AddColumnsToUser < ActiveRecord::Migration
       t.string :emergency_contact
       t.string :emergency_contact_phone
       t.string :emergency_contact_email
+      t.string :address
+      t.float  :latitude
+      t.float  :longitude
     end
     add_index :users, :username, unique: true
   end

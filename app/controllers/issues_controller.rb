@@ -1,8 +1,13 @@
 class IssuesController < ApplicationController
+  respond_to :html, :js
 
   def index
 		@issues = Issue.all
-	end
+    respond_to do |format|
+      format.html
+      format.json { render json: @issues }
+    end
+  end
 
   def show
   	@issue = Issue.find(params[:id])
@@ -10,15 +15,14 @@ class IssuesController < ApplicationController
 
   def new
 		@issue = Issue.new
-    @neighborhoods = Issue::NEIGHBORHOODS
-	end
+  end
 
 	def create
   	@issue = Issue.new(issue_params)
 
 		if @issue.save
 			flash[:notice] = "Issue Successfully Added!"
-			redirect_to issue_path(@issue)
+			redirect_to root_path
 		else
       flash[:notice] = @issue.errors.full_messages.join(". ")
 			redirect_to new_issue_path
@@ -46,11 +50,10 @@ class IssuesController < ApplicationController
     else
       flash[:notice] = @issue.errors.full_messages.join(". ")
       redirect_to edit_issue_path(@issue)
-   end
+    end
   end
 
   def edit
-    @neighborhoods = Issue::NEIGHBORHOODS
     if current_user.try(:admin?)
       @issue = Issue.find(params[:id])
     else
@@ -61,7 +64,9 @@ class IssuesController < ApplicationController
 
   protected
 
+
   def issue_params
-    params.require(:issue).permit(:description, :headline, :neighborhood)
+    params.require(:issue).permit(:description, :headline, :longitude,
+      :latitude, :completed, :address)
   end
 end

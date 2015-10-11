@@ -9,7 +9,7 @@ feature 'user can submit a bike issue', %(
   - [X] User get error messages when filling out form wrong
 
 ) do
-  scenario 'user submits bike issue' do
+  scenario 'user submits bike issue with success' do
     user = FactoryGirl.create(:user)
 
     visit new_user_session_path
@@ -23,15 +23,14 @@ feature 'user can submit a bike issue', %(
 
     visit new_issue_path
 
-    fill_in 'issue[headline]', with: "I have a flat tire."
-    fill_in 'issue[description]', with: "There is a nail in the front tire and I have a slow leak."
+    fill_in 'issue[headline]', with: "Issue Successfully Added!"
+
 
     click_button "Add Issue"
 
-    expect(page).to have_content("I have a flat tire.")
-    expect(page).to have_content("There is a nail in the front tire and I have a slow leak.")
+    expect(page).to have_content("Issue Successfully Added!")
   end
-  scenario 'user adds program unsuccessfully' do
+  scenario 'user adds issue unsuccessfully' do
     user = FactoryGirl.create(:user)
 
     visit new_user_session_path

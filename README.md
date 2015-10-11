@@ -1,4 +1,4 @@
-![Build Status](https://codeship.com/projects/<YOUR_PROJECT_UUID>/status?branch=master)
+![BuildStatus](https://codeship.com/projects/c5547fa0-46b9-0133-f1b2-3a7a159e2683/status?branch=master)
 ![Code Climate](https://codeclimate.com/github/latterjacob/breakable_toy.png)
 ![Coverage Status](https://coveralls.io/repos/latterjacob/breakable_toy/badge.png)
 

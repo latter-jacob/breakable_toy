@@ -1,8 +1,8 @@
 <div class="title-box">
   Bicycles Benefit Boston
 </div>
-<script src="http://maps.googleapis.com/maps/api/js?[GOOGLE_MAPS_KEY]"></script>
-<div class="panel" id="map"></div>
+<div class="panel" id="map" src="https://www.google.com/maps/embed/v1/place?key=<%= ENV['GOOGLE_KEY']%>"></div>
+
 
    <div class="submit-issue-div">
      <%= button_to "Submit new issue", new_issue_path, method: :get, class: "submit-issue" %>

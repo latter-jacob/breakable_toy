@@ -4,5 +4,7 @@
   <li> <%= @issue.description  %> </li>
 </ul>
 
-<%= link_to 'Delete Issue', issue_path , method: :delete %>
-<%= link_to 'Edit', edit_issue_path(@issue) %>
+<% if current_user.try(:admin?) %>
+  <%= link_to 'Delete Issue', issue_path , method: :delete %> <br>
+  <%= link_to 'Edit', edit_issue_path(@issue) %>
+<% end %>

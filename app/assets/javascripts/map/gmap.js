@@ -1,10 +1,12 @@
 $(document).ready(function(){
+  path_name = window.location.pathname;
   $.ajax({
-    url: 'issues',
+    url: path_name,
     method: 'GET',
     dataType: 'json'
   })
   .done(function(issues){
+  if (path_name == "/"){
 
     handler = Gmaps.build('Google');
     handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
@@ -29,5 +31,25 @@ $(document).ready(function(){
       handler.getMap().setZoom(13);
 
     });
+  }else{
+    handler = Gmaps.build('Google');
+    handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+
+      var markers = handler.addMarkers([
+        {
+          "lat": issues.latitude,
+          "lng": issues.longitude,
+          "infowindow": issues.headline
+        }
+      ]);
+
+
+          center_around = {lat: issues.latitude, lng: issues.longitude}
+
+      handler.fitMapToBounds();
+      handler.map.centerOn(center_around);
+      handler.getMap().setZoom(16)
+    });
+    }
   })
 });

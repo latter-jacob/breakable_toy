@@ -11,6 +11,10 @@ class IssuesController < ApplicationController
 
   def show
   	@issue = Issue.find(params[:id])
+    respond_to do |format|
+      format.html
+      format.json { render json: @issue }
+    end
   end
 
   def new
@@ -21,6 +25,7 @@ class IssuesController < ApplicationController
   	@issue = Issue.new(issue_params)
 
 		if @issue.save
+      IssueMailer.issue_notification(@issue, @program.user).deliver_later
 			flash[:notice] = "Issue Successfully Added!"
 			redirect_to root_path
 		else

@@ -23,20 +23,4 @@ feature 'admin deletes an issue', %{
     expect(page).to have_content("Issue deleted.")
     expect(page).not_to have_content("issue.headline")
   end
-
-  scenario 'user can not delete issue successfully' do
-    user = FactoryGirl.create(:user)
-    issue = FactoryGirl.create(:issue)
-
-    visit new_user_session_path
-    fill_in 'Email', with: user.email
-    fill_in 'Password', with: user.password
-    click_button 'Log in'
-    expect(page).to have_content('Signed in successfully')
-
-    visit issue_path(issue)
-
-    click_link "Delete Issue"
-    expect(page).to have_content("Only admins can delete submissions!")
-  end
 end

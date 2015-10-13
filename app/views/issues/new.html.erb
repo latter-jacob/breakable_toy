@@ -2,19 +2,20 @@
   <h4 class="title-issue-form">What's wrong with the bicycle?</h4>
 
 <div id="out"></div>
-  <%= form_for @issue do |f| %>
 
-      <%= f.label "headline", class: "issue-form-labels" %><br>
-      <div class="issue-form-headline">
-        <%= f.text_field :headline %>
-      </div>
+<%= form_for @issue do |f| %>
 
-      <%= f.label "description", class: "issue-form-labels" %><br>
-      <div class="issue-form-description">
-        <%= f.text_field :description %>
-      </div>
+  <%= f.label "headline", class: "issue-form-labels" %><br>
+  <div class="issue-form-headline">
+    <%= f.text_field :headline %>
+  </div>
 
-      <%= f.submit "Add Issue", class: "submit" %>
+  <%= f.label "description", class: "issue-form-labels" %><br>
+  <div class="issue-form-description">
+    <%= f.text_field :description %>
+  </div>
 
-  <% end %>
+  <%= f.submit "Add Issue", class: "submit" %>
+
+<% end %>
 </div>

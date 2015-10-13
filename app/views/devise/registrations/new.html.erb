@@ -1,3 +1,5 @@
+<div class="sign-up">
+
 <h2>Sign up</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
@@ -15,9 +17,6 @@
 
   <div class="field">
     <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
     <%= f.password_field :password, autocomplete: "off" %>
   </div>
 
@@ -50,5 +49,6 @@
     <%= f.submit "Sign up" %>
   </div>
 <% end %>
+<%= button_to 'Log In', new_user_session_path, method: :get %>
 
-<%= render "devise/shared/links" %>
+</div>

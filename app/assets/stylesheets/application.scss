@@ -116,9 +116,8 @@
 }
 body{
   background-image: url("boston.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: 50% 50%;
+  background-size: 100% 100%;
+  background-repeat: no-repeat; 
 }
 
 .title-issue-form{
@@ -143,10 +142,22 @@ body{
 .submit{
   margin-left: 3%;
 }
+.show_map{
+  width: 50%;
+}
 
 @media (max-width: 1100px) {
   .title-box {
     text-align: center;
     padding-left: 0%;
+  }
+  .show_map {
+    width: 100%;
+  }
+  .event-desc-header{
+    width: 100%;
+  }
+  body{
+    length: 100%;
   }
 }

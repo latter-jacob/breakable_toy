@@ -25,7 +25,7 @@ class IssuesController < ApplicationController
   	@issue = Issue.new(issue_params)
 
 		if @issue.save
-      IssueMailer.issue_notification(@issue, @program.user).deliver_later
+      # IssueMailer.issue_notification(@issue, @program.user).deliver_later
 			flash[:notice] = "Issue Successfully Added!"
 			redirect_to root_path
 		else

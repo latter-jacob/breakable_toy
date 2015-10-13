@@ -1,15 +1,13 @@
 <h2> <%= @issue.headline %> </h2>
 
-<ul>
-  <li> <%= @issue.description  %> </li>
-</ul>
+  <h3> <%= @issue.description  %> </h3>
 
+
+<div class="show_map">
+  <div class="panel" id="map"></div>
+</div>
 
 <% if current_user.try(:admin?) %>
   <%= link_to 'Delete Issue', issue_path , method: :delete %> <br>
   <%= link_to 'Edit', edit_issue_path(@issue) %>
 <% end %>
-
-<div class="panel" id="map" style="width:50%
-  
-"></div>

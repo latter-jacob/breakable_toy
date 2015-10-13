@@ -26,11 +26,21 @@ class IssuesController < ApplicationController
 
 		if @issue.save
       # IssueMailer.issue_notification(@issue, @program.user).deliver_later
-			flash[:notice] = "Issue Successfully Added!"
-			redirect_to root_path
+      respond_to do |format|
+        format.html do
+    			flash[:notice] = "Issue Successfully Added!"
+    			redirect_to root_path
+        end
+        format.json { render json: { status: 200 } }
+      end
 		else
-      flash[:notice] = @issue.errors.full_messages.join(". ")
-			redirect_to new_issue_path
+      respond_to do |format|
+        format.html do
+          flash[:notice] = @issue.errors.full_messages.join(". ")
+          redirect_to new_issue_path
+        end
+        format.json { render json: { status: 500 } }
+      end
 		end
 	end
 

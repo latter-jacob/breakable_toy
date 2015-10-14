@@ -1,17 +1,18 @@
 $(document).ready(function(){
   path_name = window.location.pathname;
+  $.ajaxSetup({cache: false});
   $.ajax({
     url: path_name,
     method: 'GET',
     dataType: 'json'
   })
-  .done(function(issues){
+  .done(function(not_completed_issues){
   if (path_name == "/"){
 
     handler = Gmaps.build('Google');
     handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
 
-      issues.forEach(function(issue) {
+      not_completed_issues.forEach(function(issue) {
       markers = handler.addMarkers([
         {
           "lat": issue.latitude,
@@ -37,17 +38,18 @@ $(document).ready(function(){
 
       var markers = handler.addMarkers([
         {
-          "lat": issues.latitude,
-          "lng": issues.longitude,
-          "infowindow": issues.headline
+          "lat": not_completed_issues.latitude,
+          "lng": not_completed_issues.longitude,
+          "infowindow": not_completed_issues.headline
         }
       ]);
 
 
-          center_around = {lat: issues.latitude, lng: issues.longitude}
+          centerAround = {lat: not_completed_issues.latitude,
+             lng: not_completed_issues.longitude}
 
       handler.fitMapToBounds();
-      handler.map.centerOn(center_around);
+      handler.map.centerOn(centerAround);
       handler.getMap().setZoom(16)
     });
     }

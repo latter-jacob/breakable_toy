@@ -19,7 +19,7 @@ feature 'admin deletes an issue', %{
 
     visit issue_path(issue)
 
-    click_link "Delete Issue"
+    click_button "Delete Issue"
     expect(page).to have_content("Issue deleted.")
     expect(page).not_to have_content("issue.headline")
   end

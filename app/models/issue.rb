@@ -8,5 +8,4 @@ class Issue < ActiveRecord::Base
 
   after_validation :geocode, if: :address_changed?
   after_validation :reverse_geocode, if: :address_changed?
-
 end

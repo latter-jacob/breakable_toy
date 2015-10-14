@@ -50,7 +50,7 @@
   text-align: center;
 }
 
-.issue-list-title{
+.issue-list-title {
   font-size: 1.5rem;
   font-family: 'Alegreya Sans SC', sans-serif;
   padding-left: 3%;
@@ -123,40 +123,40 @@ body{
   -webkit-background-size: cover;
   background-size: cover;
 }
-.title-issue-form{
+.title-issue-form {
   font-size: 3rem;
   padding-left: 6%;
 }
 
-.issue-form-labels{
+.issue-form-labels {
   font-size: 2rem;
   padding-left: 3%;
 }
 
-.issue-form-headline{
+.issue-form-headline {
   padding-left: 3%;
   padding-right: 40%;
 }
-.issue-form-description{
+.issue-form-description {
   padding-left: 3%;
   padding-right: 3%;
 }
 
-.submit{
+.submit {
   margin-left: 3%;
 }
-.show_map{
+.show_map {
   width: 50%;
 }
 
-.sign-up{
+.sign-up {
   padding-left: 3%;
   padding-right: 50%;
   text-shadow: 1px 1px 1px black;
 }
 
 label {
-  color: white;
+  color: #ffffff;
   cursor: pointer;
   display: block;
   font-size: 1.25rem;
@@ -166,7 +166,7 @@ label {
   /* Styles for required inputs */
 }
 
-.new-issue-page{
+.new-issue-page {
   text-shadow: 1px 1px 1px black;
 
 }
@@ -174,7 +174,7 @@ label {
   text-shadow: 1px 1px 1px black;
 }
 
-.completed{
+.completed {
   color: white;
 }
 
@@ -186,7 +186,7 @@ label {
   .show_map {
     width: 100%;
   }
-  .event-desc-header{
+  .event-desc-header {
     width: 100%;
   }
 }

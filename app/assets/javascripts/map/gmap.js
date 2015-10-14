@@ -1,6 +1,6 @@
 $(document).ready(function(){
   path_name = window.location.pathname;
-  $.ajaxSetup({cache: false})
+  $.ajaxSetup({cache: false});
   $.ajax({
     url: path_name,
     method: 'GET',
@@ -45,10 +45,11 @@ $(document).ready(function(){
       ]);
 
 
-          center_around = {lat: not_completed_issues.latitude, lng: not_completed_issues.longitude}
+          centerAround = {lat: not_completed_issues.latitude,
+             lng: not_completed_issues.longitude}
 
       handler.fitMapToBounds();
-      handler.map.centerOn(center_around);
+      handler.map.centerOn(centerAround);
       handler.getMap().setZoom(16)
     });
     }

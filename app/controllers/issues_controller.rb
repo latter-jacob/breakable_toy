@@ -2,10 +2,16 @@ class IssuesController < ApplicationController
   respond_to :html, :js
 
   def index
-		@issues = Issue.all
+    @issues = Issue.all
+    @not_completed_issues = []
+    @issues.each do |issue|
+      if !issue.completed?
+        @not_completed_issues << issue
+      end
+    end
     respond_to do |format|
       format.html
-      format.json { render json: @issues }
+      format.json { render json: @not_completed_issues }
     end
   end
 
@@ -78,7 +84,6 @@ class IssuesController < ApplicationController
   end
 
   protected
-
 
   def issue_params
     params.require(:issue).permit(:description, :headline, :longitude,

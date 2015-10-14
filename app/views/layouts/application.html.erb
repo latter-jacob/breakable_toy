@@ -48,5 +48,14 @@
 
   <%= javascript_include_tag 'application' %>
   <%= yield :extra_footer %>
+  <script>
+     $(document).ready(function() {
+       setTimeout(function(){
+         $(".flash").fadeOut("slow", function() {
+           $(this).remove();
+         })
+       }, 3000);
+     });
+   </script>
 </body>
 </html>

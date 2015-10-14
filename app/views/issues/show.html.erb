@@ -11,4 +11,14 @@
     <%= button_to 'Delete Issue', issue_path, method: :delete, class: "delete-edit" %>
     <%= button_to 'Edit', edit_issue_path(@issue), method: :get, class: "delete-edit" %>
   <% end %>
+
+  <% if current_user == @issue.user %>
+    <%= form_for @issue do |f| %>
+
+      <%= f.text_field :completed, value: "true", type: "hidden" %>
+
+      <%= f.submit "Completed?"%>
+
+    <% end %>
+  <% end %>
 </div>

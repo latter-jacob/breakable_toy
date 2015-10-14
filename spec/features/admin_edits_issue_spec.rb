@@ -75,7 +75,7 @@ feature 'admin edits issue', %{
 
     visit issue_path(issue)
 
-    click_link('Edit')
+    click_button 'Edit'
 
     expect(page).to have_content("Edit #{issue.headline}")
   end

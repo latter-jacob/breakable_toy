@@ -117,11 +117,12 @@
   }
 }
 body{
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-  background-image: image-url("boston.jpeg");
+  background: image-url("boston.jpeg") no-repeat center center fixed;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  -webkit-background-size: cover;
+  background-size: cover;
 }
-
 .title-issue-form{
   font-size: 3rem;
   padding-left: 6%;
@@ -171,6 +172,10 @@ label {
 }
 .show-label {
   text-shadow: 1px 1px 1px black;
+}
+
+.completed{
+  color: white;
 }
 
 @media (max-width: 1100px) {

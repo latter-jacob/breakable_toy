@@ -1,32 +1,35 @@
-![Build Status](https://codeship.com/projects/<YOUR_PROJECT_UUID>/status?branch=master)
-![Code Climate](https://codeclimate.com/github/latterjacob/breakable_toy.png)
-![Coverage Status](https://coveralls.io/repos/latterjacob/breakable_toy/badge.png)
+![BuildStatus](https://codeship.com/projects/c5547fa0-46b9-0133-f1b2-3a7a159e2683/status?branch=master)
 
-== README
+# Bicycles Benefit Boston
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+BBB is a Rails app designed to help users fix mechanical problems with there bicycle. When a user submits an issue, the time and location is added to the database and map, which allows other users to either meet up to help fix the bike or email a suggested fix. App relies heavily on Google Maps API and Geocoder gem. User's location is automatically identified and generated on the map when a new issue is submitted.
 
-Things you may want to cover:
+## Live app hosted on Heroku
+[Bicycles Benefit Boston](bicycles-benefit-boston.herokuapp.com)
 
-* Ruby version
+## ER Diagrams and Schema structure
+![ER](http://i.imgur.com/IXOkTU8.png)
 
-* System dependencies
+## Get Started
+1. Bundle the gems
 
-* Configuration
+  ```Bundle```
 
-* Database creation
+2. Bootup the database:
 
-* Database initialization
+  ```rake db:create```
 
-* How to run the test suite
+3. Bring in your migrations
 
-* Services (job queues, cache servers, search engines, etc.)
+  ```rake db:migrate```
 
-* Deployment instructions
+4. Run the test suite
 
-* ...
+  ```rake```
 
+## Deployment
+On a clean Master branch, run:
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+  ```
+  git push heroku master
+  ```

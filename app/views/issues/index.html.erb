@@ -1,21 +1,19 @@
-<div class="title-box">
-  Bicycles Benefit Boston
-</div>
-
 <div class="panel" id="map"></div>
 
    <div class="submit-issue-div">
      <%= button_to "Submit New Issue", new_issue_path, method: :get, class: "submit-issue" %>
    </div>
 
-<div class="issue-list-title">Issue List</div>
+<div class="background-shader large-2 large-offset-5 small-6 small-offset-3 columns text-center">
+  <div class="issue-list-title" id="issue-list-title">Issue List</div>
+</div>
 
 <br>
+<div class="row hide">
 
- <% @not_completed_issues.each do |issue| %>
- <div class="row">
    <div class="small-9 large-12 columns small-centered large-uncentered">
 
+     <% @not_completed_issues.each do |issue| %>
      <article class="event">
 
        <div class="event-date">
@@ -28,8 +26,8 @@
        </div>
 
       </article>
-
        <hr>
+    <% end %>
+
    </div>
  </div>
- <% end %>

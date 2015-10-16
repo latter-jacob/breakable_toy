@@ -1400,16 +1400,16 @@ $anchor-font-color-hover: scale-color($anchor-font-color, $lightness: +50%);
 // $include-html-top-bar-classes: $include-html-classes;
 
 // Background color for the top bar
-// $topbar-bg-color: $oil;
+$topbar-bg-color: #BD3039;
 // $topbar-bg: $topbar-bg-color;
 
 // Height and margin
-// $topbar-height: rem-calc(45);
+$topbar-height: rem-calc(60);
 // $topbar-margin-bottom: 0;
 
 // Controlling the styles for the title in the top bar
 // $topbar-title-weight: $font-weight-normal;
-// $topbar-title-font-size: rem-calc(17);
+$topbar-title-font-size: 2.5rem;
 
 // Set the link colors and styles for top-level nav
 // $topbar-link-color: $white;
